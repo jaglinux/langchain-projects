@@ -9,3 +9,7 @@ def main():
 @app.get("/about")
 def about():
     return {"data": "This is FastAPI based server"}
+
+@app.get("/blog/{id}")
+def blog(id):
+    return {"data":id}
