@@ -1,3 +1,4 @@
+#g++-13 -fopenmp foo.c
 #include <omp.h>
 #include <cstdio>
 
