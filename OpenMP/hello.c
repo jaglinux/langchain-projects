@@ -10,3 +10,14 @@ int main() {
         printf("World %d \n", ID);
     }
 }
+//OutPut is
+/*
+Hello 1World 1 
+Hello 4World 4 
+Hello 3World 3 
+Hello 0World 0 
+Hello 6World 6 
+Hello 5World 5 
+Hello 2World 2 
+Hello 7World 7
+*/
