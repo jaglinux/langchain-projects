@@ -15,5 +15,4 @@ agent = create_pandas_dataframe_agent(
     agent_type=AgentType.OPENAI_FUNCTIONS,
 )
 
-print("--jag--- ", os.environ['OPENAI_API_KEY'])
 agent.invoke("how many rows are there?")
