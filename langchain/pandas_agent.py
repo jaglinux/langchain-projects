@@ -4,9 +4,11 @@ from langchain_openai import ChatOpenAI
 
 import pandas as pd
 import os
+import numpy as np
 
 df = pd.read_csv("./langchain/titanic.csv")
-print(df)
+df['Age'] = df['Age'].fillna(int(df['Age'].mean()))
+df['Age'] = df['Age'].apply(np.ceil).astype(int)
 
 agent = create_pandas_dataframe_agent(
     ChatOpenAI(temperature=0, model="gpt-3.5-turbo-0613"),
@@ -15,4 +17,9 @@ agent = create_pandas_dataframe_agent(
     agent_type=AgentType.OPENAI_FUNCTIONS,
 )
 
-agent.invoke("how many rows are there?")
+agent.invoke("caculate minimum age")
+
+# > Entering new AgentExecutor chain...
+# Invoking: `python_repl_ast` with `{'query': "df['Age'].min()"}`
+# 1The minimum age in the dataframe is 1.
+# > Finished chain.
